@@ -30,7 +30,6 @@ p {
   /* -----font styles and sizes--------- */
   --fontFamily: "Red Hat Text", sans-serif;
   --fontWeight: 700;
-  --fontSize: 14px;
 
   /* ------Primary Colors------------- */
   --grayishBlue: hsl(237, 18%, 59%);
@@ -44,96 +43,119 @@ p {
 }
 
 body {
-  font-size: var(--fontSize);
+  font-size: 1rem;
   text-transform: uppercase;
   font-family: var(--fontFamily);
   font-weight: var(--fontWeight);
   background-image: url(./images/bg-stars.svg);
   width: 100%;
   min-height: 100vh;
-  /* min-height: -webkit-fill-available; */
+  min-height: -webkit-fill-available;
   background-color: var(--veryDarkBlue);
   color: var(--white);
   overflow: hidden;
 }
 
 .title {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   text-align: center;
   letter-spacing: 6px;
   flex-wrap: wrap;
 }
 
 .main-wrapper {
-  margin: 9rem auto;
+  margin: 5rem auto;
   width: 95%;
   height: 20rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  align-items: center;
+  gap: 3rem;
 }
 
-.main-wrapper .timer {
+.main-wrapper .flip-cards {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  gap: 1.3rem;
+  align-items: center;
+  min-width: 30vw;
+  gap: 1rem;
 }
 
-.main-wrapper .timer .box {
-  height: 9rem;
-  width: 7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* --------CSS Effect section---- */
+
+.flip-card {
   position: relative;
-}
-
-.box::after {
-  content: "";
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background-color: var(--grayishBlue);
-  position: absolute;
-  top: 36%;
-  left: -8%;
-  background-color: var(--veryDarkBlue);
-}
-.box::before {
-  content: "";
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background-color: var(--veryDarkBlue);
-  position: absolute;
-  top: 36%;
-  right: -8%;
-}
-
-.main-wrapper .timer .box .content {
-  font-size: 3rem;
-  height: 10rem;
-  width: 100%;
-  font-weight: bolder;
-  color: var(--softRed);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.7);
-  background: linear-gradient(#232643 52%, #2c2f54 50%);
-  display: flex;
-  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
   justify-content: center;
-  border-radius: 6px;
+  font-size: 4rem;
+  color: var(--softRed);
+  border-radius: 0.8rem;
+  font-weight: bolder;
+  width: 100%;
 }
 
-.content::before {
+.top,
+.bottom {
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.5em;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.top {
+  background-color: #232643;
+  border-top-right-radius: 0.2em;
+  border-top-left-radius: 0.2em;
+}
+
+.bottom {
+  border-bottom-left-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+  background-color: #2c2f54;
+  display: flex;
+  align-items: flex-end;
+}
+
+.flip-card.flip::before {
   content: "";
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.5em;
+  overflow: hidden;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  animation: flip-top 1000ms ease-in infinite;
+  transform-origin: bottom;
 }
 
-.timer .box p {
-  margin-top: 1rem;
-  color: var(--grayishBlue);
-  font-size: 0.8rem;
-  letter-spacing: 4px;
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip-card.flip::after {
+  content: "";
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.5em;
+  overflow: hidden;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  animation: flip-bottom 1000ms ease-in 1000ms infinite;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 
 .social-icons {
@@ -179,44 +201,4 @@ span {
   bottom: 0;
   width: 100%;
   height: 25vh;
-}
-
-@media only screen and (max-width: 530px) {
-  .main-wrapper {
-    width: 98%;
-  }
-
-  footer {
-    font-size: 0.6rem;
-  }
-
-  .box p {
-    letter-spacing: 3px;
-  }
-
-  .title {
-    font-size: 1.4rem;
-  }
-
-  .content {
-    height: 100%;
-    flex: 1;
-  }
-
-  .main-wrapper .timer {
-    width: 100%;
-    align-self: stretch;
-    gap: 0rem;
-  }
-
-  .box {
-    transform: scale(0.7);
-    width: 100%;
-  }
-
-  .social-icons {
-    transform: scale(0.8);
-    position: absolute;
-    left: 26%;
-  }
 }

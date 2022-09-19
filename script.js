@@ -43,8 +43,32 @@ setInterval(() => {
   let min = date.getMinutes();
   let hour = date.getHours();
 
-  document.querySelector(".days").innerText = day;
-  document.querySelector(".hours").innerText = hour;
-  document.querySelector(".minutes").innerText = min;
-  document.querySelector(".seconds").innerText = seconds;
+  day = day < 10 ? "0" + day : day;
+  min = min < 10 ? "0" + min : min;
+  hour = hour < 10 ? "0" + hour : hour;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+
+  // -----Days section--------------
+  // document.querySelector(".days").innerText = day;
+  document.querySelector(".days-top").innerText = day;
+  document.querySelector(".days-bottom").innerText = day;
+
+  // -----Hours section--------------
+  // document.querySelector(".hours").innerText = hour;
+  document.querySelector(".hours-top").innerText = hour;
+  document.querySelector(".hours-bottom").innerText = hour;
+
+  // -----Mins section--------------
+  // document.querySelector(".minutes").innerText = min;
+  document.querySelector(".minutes-top").innerText = min;
+  document.querySelector(".minutes-bottom").innerText = min;
+
+  // -----Secondss section--------------
+  // document.querySelector(".seconds").innerText = seconds;
+  document.querySelector(".seconds-top").innerText = seconds;
+  document.querySelector(".seconds-bottom").innerText = seconds;
+
+  const flipCards = document.querySelectorAll(".flip-card");
+
+  // let flipCardBefore = window.getComputedStyle(flipCard, "::before");
 }, 1000);
