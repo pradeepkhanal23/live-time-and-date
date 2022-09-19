@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 5rem auto;
+  font-size: 10rem;
+  color: #de4848;
+  text-align: center;
+  background-color: #f2f1ed;
+}
+
+.flip-card {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+  position: relative;
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+
+.top,
+.bottom,
+.flip-card.flip::before,
+.flip-card.flip::after {
+  height: 0.75em;
+  line-height: 1;
+  padding: 0.25em;
+}
+
+.top,
+.flip-card.flip::before {
+  background-color: #f7f7f7;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.bottom,
+.flip-card.flip::after {
+  background-color: white;
+  display: flex;
+  align-items: end;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.flip-card.flip::before {
+  overflow: hidden;
+  content: "5";
+  top: 0;
+  position: absolute;
+  width: 100%;
+  animation: flip-top 1000ms ease-in infinite;
+  transform-origin: bottom;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip-card.flip::after {
+  overflow: hidden;
+  content: "5";
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  animation: flip-bottom 1000ms ease-in 1000ms infinite;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
