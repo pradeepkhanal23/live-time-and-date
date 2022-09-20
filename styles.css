@@ -119,17 +119,17 @@ body {
   align-items: flex-end;
 }
 
-.flip-card.flip::before {
-  content: "";
+.flip-card .top-flip {
+  /* background-color: green; */
   height: 0.75em;
   line-height: 1;
   padding: 0.5em;
   overflow: hidden;
-  top: 0;
   position: absolute;
+  top: 0;
   width: 100%;
-  animation: flip-top 1000ms ease-in infinite;
-  transform-origin: bottom;
+  transform-origin: bottom center;
+  animation: flip-top 800ms linear infinite;
 }
 
 @keyframes flip-top {
@@ -138,16 +138,17 @@ body {
   }
 }
 
-.flip-card.flip::after {
-  content: "";
+.flip-card .bottom-flip {
+  display: flex;
+  align-items: flex-end;
   height: 0.75em;
   line-height: 1;
   padding: 0.5em;
   overflow: hidden;
-  bottom: 0;
   position: absolute;
+  bottom: 0;
   width: 100%;
-  animation: flip-bottom 1000ms ease-in 1000ms infinite;
+  animation: flip-bottom 800ms linear 800ms infinite;
   transform-origin: top;
   transform: rotateX(90deg);
 }

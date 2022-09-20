@@ -49,26 +49,34 @@ setInterval(() => {
   seconds = seconds < 10 ? "0" + seconds : seconds;
 
   // -----Days section--------------
-  // document.querySelector(".days").innerText = day;
+  document.querySelector("[data-days-top]").innerText = day;
+  document.querySelector("[data-days-bottom]").innerText = day;
   document.querySelector(".days-top").innerText = day;
   document.querySelector(".days-bottom").innerText = day;
 
   // -----Hours section--------------
-  // document.querySelector(".hours").innerText = hour;
+  document.querySelector("[data-hours-top]").innerText = hour;
+  document.querySelector("[data-hours-bottom]").innerText = hour;
   document.querySelector(".hours-top").innerText = hour;
   document.querySelector(".hours-bottom").innerText = hour;
 
   // -----Mins section--------------
-  // document.querySelector(".minutes").innerText = min;
+  document.querySelector("[data-minutes-top]").innerText = min;
+  document.querySelector("[data-minutes-bottom]").innerText = min;
   document.querySelector(".minutes-top").innerText = min;
   document.querySelector(".minutes-bottom").innerText = min;
 
   // -----Secondss section--------------
-  // document.querySelector(".seconds").innerText = seconds;
+  document.querySelector("[data-seconds-top]").innerText = seconds;
+  document.querySelector("[data-seconds-bottom]").innerText = seconds;
   document.querySelector(".seconds-top").innerText = seconds;
   document.querySelector(".seconds-bottom").innerText = seconds;
-
-  const flipCards = document.querySelectorAll(".flip-card");
-
-  // let flipCardBefore = window.getComputedStyle(flipCard, "::before");
 }, 1000);
+
+const flipCards = document.querySelectorAll(".flip-card");
+const flipCardArray = Array.from(flipCards);
+flipCardArray.forEach((card) => {
+  card.addEventListener("change", () => {
+    card.classList.add("flip-top", "flip-bottom");
+  });
+});
