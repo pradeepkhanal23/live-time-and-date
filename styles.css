@@ -1,27 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
 
-html::before,
-html::after,
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  min-height: -webkit-fill-available;
-}
-
 * {
   box-sizing: border-box;
 }
 
-a {
-  color: white;
-}
-
-h2,
-p {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -40,4 +24,100 @@ p {
   --darkDesaturatedBlue: hsl(236, 21%, 26%);
   --veryDarkBlue: hsl(235, 16%, 14%);
   --veryDarkMostlyBlackBlue: hsl(234, 17%, 12%);
+
+  /* ----------drop shadow and text shadow------------ */
+  --drop-shadow: drop-shadow(2px 2px 1px black);
+  --text-shadow: 2px 2px rgba(0, 0, 0, 0.368);
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("./images/bg-stars.svg");
+  background-color: var(--veryDarkMostlyBlackBlue);
+  font-family: var(--fontFamily);
+  font-weight: var(--fontWeight);
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  margin: 5rem auto;
+  color: #fff;
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.card {
+  text-shadow: var(--text-shadow);
+  font-size: 3.5rem;
+  filter: var(--drop-shadow);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  width: 90px;
+  background-color: var(--darkDesaturatedBlue);
+  color: var(--softRed);
+}
+
+.pattern-hills {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+}
+
+.social {
+  position: absolute;
+  bottom: 2rem;
+  width: 10vw;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--grayishBlue);
+}
+
+@media only screen and (max-width: 600px) {
+  .cards {
+    transform: scale(0.8);
+    gap: 0.5rem;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+    transform: scale(0.7);
+    position: absolute;
+    bottom: 0.5rem;
+  }
 }
