@@ -1,18 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@500&family=Caveat:wght@600&family=Indie+Flower&family=Itim&family=Nunito&display=swap");
 
-* {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 :root {
   /* -----font styles and sizes--------- */
-  --fontFamily: "Red Hat Text", sans-serif;
+  --fontFamily: "Itim", sans-serif;
   --fontWeight: 700;
 
   /* ------Primary Colors------------- */
@@ -26,7 +24,7 @@ body {
   --veryDarkMostlyBlackBlue: hsl(234, 17%, 12%);
 
   /* ----------drop shadow and text shadow------------ */
-  --drop-shadow: drop-shadow(2px 2px 1px black);
+  --drop-shadow: drop-shadow(2px 5px 1px black);
   --text-shadow: 2px 2px rgba(0, 0, 0, 0.368);
 }
 
@@ -61,12 +59,13 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.7rem;
+  gap: 1.5rem;
 }
 
 .card {
+  position: relative;
   text-shadow: var(--text-shadow);
-  font-size: 3.5rem;
+  font-size: 4rem;
   filter: var(--drop-shadow);
   border-radius: 5px;
   display: flex;
@@ -76,7 +75,97 @@ main {
   width: 90px;
   background-color: var(--darkDesaturatedBlue);
   color: var(--softRed);
+  overflow: hidden;
 }
+
+.card::before {
+  position: absolute;
+  content: "";
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 50%;
+  left: -6%;
+  background-color: white;
+  z-index: 2;
+  background-color: #14121a;
+}
+.card::after {
+  position: absolute;
+  content: "";
+  height: 0.7rem;
+  width: 0.7rem;
+  border-radius: 50%;
+  right: -6%;
+  background-color: #14121a;
+  z-index: 2;
+}
+
+/* -----------CORE ANIMATION STARTS HERE-------------------------- */
+
+.flip-card {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  border-radius: 0.1em;
+}
+
+.top,
+.bottom,
+.flip-card.show-flip-animation::before,
+.flip-card.show-flip-animation::after {
+  line-height: 1;
+  height: 0.75em;
+  padding: 0.25em;
+}
+
+.top,
+.flip-card.show-flip-animation::before {
+  border-top-left-radius: 0.1em;
+  border-top-right-radius: 0.1em;
+  background-color: #33364f;
+}
+
+.bottom,
+.flip-card.show-flip-animation::after {
+  display: flex;
+  align-items: flex-end;
+  border-bottom-left-radius: 0.1em;
+  border-bottom-right-radius: 0.1em;
+
+  background-color: #494561;
+}
+
+.flip-card.show-flip-animation::before {
+  position: absolute;
+  content: "10";
+  width: 100%;
+  animation: top-flip-animation 800ms ease-in-out;
+  transform-origin: bottom;
+}
+
+@keyframes top-flip-animation {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.flip-card.show-flip-animation::after {
+  position: absolute;
+  content: "10";
+  bottom: 0;
+  width: 100%;
+  animation: bottom-flip-animation 800ms ease-in-out 800ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes bottom-flip-animation {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* -----------CORE ANIMATION ENDS HERE-------------------------- */
 
 .pattern-hills {
   width: 100%;
