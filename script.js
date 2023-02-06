@@ -1,74 +1,107 @@
 // Getting Systems Time instead of launch time
 
-// setInterval(() => {
-//   const date = new Date();
-//   let day = date.getDate();
-//   let seconds = date.getSeconds();
-//   let min = date.getMinutes();
-//   let hour = date.getHours();
+setInterval(() => {
+  const date = new Date();
+  let day = date.getDate();
+  let seconds = date.getSeconds();
+  let min = date.getMinutes();
+  let hour = date.getHours();
 
-//   day = day < 10 ? "0" + day : day;
-//   min = min < 10 ? "0" + min : min;
-//   hour = hour < 10 ? "0" + hour : hour;
-//   seconds = seconds < 10 ? "0" + seconds : seconds;
+  day = day < 10 ? "0" + day : day;
+  min = min < 10 ? "0" + min : min;
+  hour = hour < 10 ? "0" + hour : hour;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
 
-//   // const topSec = document.querySelector(".top-sec");
-//   // const bottomSec = document.querySelector(".bottom-sec");
-//   // topSec.innerHTML = seconds;
-//   // bottomSec.textContent = seconds;
+  //   ---------------SECOND FLIP CARD-------------------------
 
-//   // const topHours = document.querySelector(".top-hr");
-//   // const bottomHours = document.querySelector(".bottom-hr");
-//   // topHours.innerHTML = hour;
-//   // bottomHours.textContent = hour;
+  const flipCardSecond = document.querySelector(".flip-card-second");
 
-//   // const topMins = document.querySelector(".top-mins");
-//   // const bottomMins = document.querySelector(".bottom-mins");
-//   // topMins.innerHTML = min;
-//   // bottomMins.textContent = min;
+  const topHalfSecond = document.createElement("div");
+  topHalfSecond.classList.add("top-flip");
+  flipCardSecond.appendChild(topHalfSecond);
 
-//   // const topDays = document.querySelector(".top-days");
-//   // const bottomDays = document.querySelector(".bottom-days");
-//   // topDays.innerHTML = day;
-//   // bottomDays.textContent = day;
+  const bottomHalfSecond = document.createElement("div");
+  bottomHalfSecond.classList.add("bottom-flip");
+  flipCardSecond.appendChild(bottomHalfSecond);
 
-//   const secondCard = Array.from(
-//     document.querySelector(".flip-card-sec").children
-//   );
+  const flipCardSecondChildren = Array.from(
+    document.querySelector(".flip-card-second").children
+  );
 
-//   secondCard.forEach((card) => {
-//     card.dataset.digit = seconds;
-//   });
-// }, 1000);
+  flipCardSecondChildren.forEach((child) => {
+    child.textContent = seconds;
+  });
 
-// setInterval(() => {
-//   const date = new Date();
-//   const seconds = date.getSeconds();
-//   const secondCardTop = document.querySelector(".top-sec");
-//   const secondCardBottom = document.querySelector(".bottom-sec");
-//   secondCardTop.innerHTML = seconds;
-//   secondCardBottom.innerHTML = seconds;
-//   secondCardTop.dataset.digit = seconds;
-//   secondCardBottom.dataset.digit = seconds;
+  //   ---------------SECOND FLIP CARD ENDS-------------------------
 
-//   const flipCard = document.querySelector(".flip-card");
-//   flipCard.addEventListener("DOMCOntentLoaded", (e) => {
-//     flipCard.classList.add("flip");
-//     console.log("DOM fully loaded and parsed");
-//   });
-// }, 1000);
+  //   ---------------------------------------------------------------------------------------------------
 
-// function getTime() {
-//   const date = new Date();
+  //   --------------MINUTES FLIP CARD---------------------
 
-//   const now = {
-//     d: date.getDay(),
-//     h: date.getHours(),
-//     m: date.getMinutes(),
-//     s: date.getSeconds(),
-//   };
+  const flipCardMinute = document.querySelector(".flip-card-minute");
 
-//   now.h
-// }
+  const topHalfMinute = document.createElement("div");
+  topHalfMinute.classList.add("top-flip");
+  flipCardMinute.appendChild(topHalfMinute);
 
-// console.log(d, h, m, s);
+  const bottomHalfMinute = document.createElement("div");
+  bottomHalfMinute.classList.add("bottom-flip");
+  flipCardMinute.appendChild(bottomHalfMinute);
+
+  const flipCardMinuteChildren = Array.from(
+    document.querySelector(".flip-card-minute").children
+  );
+
+  flipCardMinuteChildren.forEach((child) => {
+    child.textContent = min;
+  });
+
+  //   --------------MINUTES FLIP CARD ENDS---------------------
+  // ------------------------------------------------------------------------------------------------------
+
+  // --------------HOURS FLIP CARD---------------------
+
+  const flipCardHour = document.querySelector(".flip-card-hour");
+
+  const topHalfHour = document.createElement("div");
+  topHalfHour.classList.add("top-flip");
+  flipCardHour.appendChild(topHalfHour);
+
+  const bottomHalfHour = document.createElement("div");
+  bottomHalfHour.classList.add("bottom-flip");
+  flipCardHour.appendChild(bottomHalfHour);
+
+  const flipCardHourChildren = Array.from(
+    document.querySelector(".flip-card-hour").children
+  );
+
+  flipCardHourChildren.forEach((child) => {
+    child.textContent = hour;
+  });
+
+  //   --------------HOURS FLIP CARD ENDS---------------------
+
+  //   ----------------------------------------------------------------------------------------------------
+
+  //   --------------DAY FLIP CARD---------------------
+
+  const flipCardDay = document.querySelector(".flip-card-day");
+
+  const topHalfDay = document.createElement("div");
+  topHalfDay.classList.add("top-flip");
+  flipCardDay.appendChild(topHalfDay);
+
+  const bottomHalfDay = document.createElement("div");
+  bottomHalfDay.classList.add("bottom-flip");
+  flipCardDay.appendChild(bottomHalfDay);
+
+  const flipCardDayChildren = Array.from(
+    document.querySelector(".flip-card-day").children
+  );
+
+  flipCardDayChildren.forEach((child) => {
+    child.textContent = day;
+  });
+
+  //   --------------DAYS FLIP CARD ENDS---------------------
+}, 1000);

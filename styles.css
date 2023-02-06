@@ -132,8 +132,8 @@ main {
 
 .top,
 .bottom,
-.flip-card::before,
-.flip-card::after {
+.flip-card .top-flip,
+.flip-card .bottom-flip {
   height: 0.75em;
   padding: 0.25em;
   line-height: 1;
@@ -141,14 +141,14 @@ main {
 }
 
 .top,
-.flip-card::before {
+.flip-card .top-flip {
   border-top-right-radius: 0.2em;
   border-top-left-radius: 0.2em;
   /* background-color: #33364f; */
 }
 
 .bottom,
-.flip-card::after {
+.flip-card .bottom-flip {
   border-bottom-right-radius: 0.2em;
   border-bottom-left-radius: 0.2em;
   background-color: #484561;
@@ -156,11 +156,10 @@ main {
   align-items: end;
 }
 
-.flip-card.flip::before {
+.flip-card .top-flip {
   position: absolute;
-  content: attr(data-count);
   width: 100%;
-  animation: flip-top 250ms ease-in;
+  animation: flip-top 160ms ease-in;
   transform-origin: bottom;
   transform-style: preserve-3d;
 }
@@ -171,11 +170,10 @@ main {
   }
 }
 
-.flip-card.flip::after {
+.flip-card .bottom-flip {
   position: absolute;
-  content: attr(data-count);
   width: 100%;
-  animation: flip-bottom 250ms ease-out 250ms;
+  animation: flip-bottom 160ms ease-out 160ms;
   transform-origin: top;
   transform: rotateX(90deg);
   transform-style: preserve-3d;
