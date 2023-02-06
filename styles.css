@@ -158,10 +158,11 @@ main {
 
 .flip-card.flip::before {
   position: absolute;
-  content: "05";
+  content: attr(data-count);
   width: 100%;
   animation: flip-top 250ms ease-in;
   transform-origin: bottom;
+  transform-style: preserve-3d;
 }
 
 @keyframes flip-top {
@@ -172,11 +173,12 @@ main {
 
 .flip-card.flip::after {
   position: absolute;
-  content: "05";
+  content: attr(data-count);
   width: 100%;
   animation: flip-bottom 250ms ease-out 250ms;
   transform-origin: top;
   transform: rotateX(90deg);
+  transform-style: preserve-3d;
   bottom: 0;
 }
 

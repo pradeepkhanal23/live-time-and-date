@@ -57,3 +57,18 @@
 //     console.log("DOM fully loaded and parsed");
 //   });
 // }, 1000);
+
+// function getTime() {
+//   const date = new Date();
+
+//   const now = {
+//     d: date.getDay(),
+//     h: date.getHours(),
+//     m: date.getMinutes(),
+//     s: date.getSeconds(),
+//   };
+
+//   now.h
+// }
+
+// console.log(d, h, m, s);
