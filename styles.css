@@ -28,6 +28,10 @@
   --text-shadow: 2px 2px rgba(0, 0, 0, 0.368);
 }
 
+a {
+  color: var(--softRed);
+}
+
 body {
   min-height: 100vh;
   background-image: url("./images/bg-stars.svg");
@@ -55,117 +59,133 @@ main {
   font-size: 2rem;
 }
 
+.label {
+  font-size: 1.5rem;
+  color: var(--grayishBlue);
+}
+
+.copyright {
+  margin: 3rem auto;
+  color: white;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--softRed);
+}
+
+/* -----------CORE CSS STARTS HERE------------- */
+
 .cards {
   display: flex;
+  gap: 0.9rem;
   align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
 }
 
 .card {
   position: relative;
-  text-shadow: var(--text-shadow);
-  font-size: 4rem;
-  filter: var(--drop-shadow);
-  border-radius: 5px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 90px;
-  width: 90px;
-  background-color: var(--darkDesaturatedBlue);
-  color: var(--softRed);
-  overflow: hidden;
+  gap: 1rem;
 }
 
 .card::before {
   position: absolute;
   content: "";
-  height: 0.7rem;
-  width: 0.7rem;
+  background-color: #1a1a24;
   border-radius: 50%;
-  left: -6%;
-  background-color: white;
-  z-index: 2;
-  background-color: #14121a;
+  height: 10px;
+  width: 10px;
+  z-index: 10000;
+  left: -5%;
+  top: 31%;
 }
 .card::after {
   position: absolute;
   content: "";
-  height: 0.7rem;
-  width: 0.7rem;
+  background-color: #1a1a24;
   border-radius: 50%;
-  right: -6%;
-  background-color: #14121a;
-  z-index: 2;
+  height: 10px;
+  width: 10px;
+  z-index: 10000;
+  right: -5%;
+  top: 31%;
 }
-
-/* -----------CORE ANIMATION STARTS HERE-------------------------- */
 
 .flip-card {
   position: relative;
+  font-size: 4rem;
   display: inline-flex;
   flex-direction: column;
-  border-radius: 0.1em;
+  color: var(--softRed);
+  background-color: var(--darkDesaturatedBlue);
+  border-radius: 0.2em;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.268);
 }
 
 .top,
 .bottom,
-.flip-card.show-flip-animation::before,
-.flip-card.show-flip-animation::after {
-  line-height: 1;
+.flip-card::before,
+.flip-card::after {
   height: 0.75em;
   padding: 0.25em;
+  line-height: 1;
+  overflow: hidden;
 }
 
 .top,
-.flip-card.show-flip-animation::before {
-  border-top-left-radius: 0.1em;
-  border-top-right-radius: 0.1em;
+.flip-card::before {
+  border-top-right-radius: 0.2em;
+  border-top-left-radius: 0.2em;
   background-color: #33364f;
 }
 
 .bottom,
-.flip-card.show-flip-animation::after {
+.flip-card::after {
+  border-bottom-right-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+  background-color: #484561;
   display: flex;
-  align-items: flex-end;
-  border-bottom-left-radius: 0.1em;
-  border-bottom-right-radius: 0.1em;
-
-  background-color: #494561;
+  align-items: end;
 }
 
-.flip-card.show-flip-animation::before {
+.flip-card.flip::before {
   position: absolute;
-  content: "10";
+  content: "05";
   width: 100%;
-  animation: top-flip-animation 800ms ease-in-out;
+  animation: flip-top 250ms ease-in;
   transform-origin: bottom;
 }
 
-@keyframes top-flip-animation {
+@keyframes flip-top {
   100% {
     transform: rotateX(90deg);
   }
 }
 
-.flip-card.show-flip-animation::after {
+.flip-card.flip::after {
   position: absolute;
-  content: "10";
-  bottom: 0;
+  content: "05";
   width: 100%;
-  animation: bottom-flip-animation 800ms ease-in-out 800ms;
+  animation: flip-bottom 250ms ease-out 250ms;
   transform-origin: top;
   transform: rotateX(90deg);
+  bottom: 0;
 }
 
-@keyframes bottom-flip-animation {
+@keyframes flip-bottom {
   100% {
     transform: rotateX(0deg);
   }
 }
 
-/* -----------CORE ANIMATION ENDS HERE-------------------------- */
+/* -----------CORE CSS ENDS HERE------------- */
 
 .pattern-hills {
   width: 100%;
@@ -189,8 +209,12 @@ main {
 
 @media only screen and (max-width: 600px) {
   .cards {
-    transform: scale(0.8);
-    gap: 0.5rem;
+    transform: scale(0.7);
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+    white-space: nowrap;
   }
 
   .title {
