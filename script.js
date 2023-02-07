@@ -90,8 +90,6 @@ function flipCard() {
 
   // -------------------------MINUTE SEGMENT-----------------------------------
   if (previousMinute != currentMinute) {
-    // minutesTopCard.innerText = currentMinute;
-    // minutesBottomCard.innerText = currentMinute;
     minutesOverlayTopCard.innerText = currentMinute;
     minutesOverlayBottomCard.innerText = currentMinute;
     minutesOverlayTopCard.classList.add("flip");
