@@ -64,13 +64,6 @@ main {
   color: var(--grayishBlue);
 }
 
-.copyright {
-  margin: 3rem auto;
-  color: white;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
 .link {
   cursor: pointer;
 }
@@ -95,7 +88,7 @@ main {
   gap: 1rem;
 }
 
-/* .card::before {
+.card::before {
   position: absolute;
   content: "";
   background-color: #1a1a24;
@@ -117,7 +110,7 @@ main {
   z-index: 10000;
   right: -5%;
   top: 31%;
-} */
+}
 
 .flip-card {
   position: relative;
@@ -185,6 +178,11 @@ main {
   transform-origin: bottom;
 }
 
+.card-on-display,
+.overlay-cards {
+  text-shadow: var(--text-shadow);
+}
+
 @keyframes flip-top {
   100% {
     transform: rotateX(90deg);
@@ -203,63 +201,11 @@ main {
   }
 }
 
-/* .top,
-.bottom,
-.flip-card .top-flip,
-.flip-card .bottom-flip {
-  height: 0.75em;
-  padding: 0.25em;
-  line-height: 1;
-  overflow: hidden;
-} */
-
-/* .top,
-.flip-card .top-flip {
-  border-top-right-radius: 0.2em;
-  border-top-left-radius: 0.2em;
-  background-color: #33364f;
-
-
-.bottom,
-.flip-card .bottom-flip {
-  border-bottom-right-radius: 0.2em;
-  border-bottom-left-radius: 0.2em;
-  background-color: #484561;
-  display: flex;
-  align-items: end;
+.copyright {
+  margin: 5rem auto;
+  color: white;
+  font-size: 1rem;
 }
-
-.flip-card .top-flip {
-  position: absolute;
-  width: 100%;
-  animation: flip-top 160ms ease-in;
-  transform-origin: bottom;
-  transform-style: preserve-3d;
-}
-
-@keyframes flip-top {
-  100% {
-    transform: rotateX(90deg);
-  }
-}
-
-.flip-card .bottom-flip {
-  position: absolute;
-  width: 100%;
-  animation: flip-bottom 160ms ease-out 160ms;
-  transform-origin: top;
-  transform: rotateX(90deg);
-  transform-style: preserve-3d;
-  bottom: 0;
-}
-
-@keyframes flip-bottom {
-  100% {
-    transform: rotateX(0deg);
-  }
-}
-
-/* -----------CORE CSS ENDS HERE------------- */
 
 .pattern-hills {
   width: 100%;
