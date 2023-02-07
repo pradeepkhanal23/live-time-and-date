@@ -95,7 +95,7 @@ main {
   gap: 1rem;
 }
 
-.card::before {
+/* .card::before {
   position: absolute;
   content: "";
   background-color: #1a1a24;
@@ -117,7 +117,7 @@ main {
   z-index: 10000;
   right: -5%;
   top: 31%;
-}
+} */
 
 .flip-card {
   position: relative;
@@ -130,7 +130,80 @@ main {
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.268);
 }
 
+/* ---------------Cards Shared Styling Start-------------------------------- */
 .top,
+.bottom,
+.top-overlay,
+.bottom-overlay {
+  height: 0.75em;
+  padding: 0.25em;
+  line-height: 1;
+  overflow: hidden;
+}
+
+/* ---------------Cards Shared Styling End-------------------------------- */
+
+.bottom,
+.bottom-overlay {
+  display: flex;
+  align-items: end;
+  border-bottom-right-radius: 0.2em;
+  border-bottom-left-radius: 0.2em;
+  background-color: #484561;
+}
+
+.top,
+.top-overlay {
+  border-top-right-radius: 0.2em;
+  border-top-left-radius: 0.2em;
+  background-color: #33364f;
+}
+
+.top,
+.bottom {
+  position: relative;
+}
+
+.top-overlay {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 50%;
+}
+
+.bottom-overlay {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 50%;
+}
+
+.overlay-cards .top-overlay.flip {
+  animation: flip-top 160ms linear;
+  transform-origin: bottom;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+.overlay-cards .bottom-overlay.flip {
+  animation: flip-bottom 160ms ease-out 160ms;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* .top,
 .bottom,
 .flip-card .top-flip,
 .flip-card .bottom-flip {
@@ -138,14 +211,14 @@ main {
   padding: 0.25em;
   line-height: 1;
   overflow: hidden;
-}
+} */
 
-.top,
+/* .top,
 .flip-card .top-flip {
   border-top-right-radius: 0.2em;
   border-top-left-radius: 0.2em;
-  /* background-color: #33364f; */
-}
+  background-color: #33364f;
+
 
 .bottom,
 .flip-card .bottom-flip {
