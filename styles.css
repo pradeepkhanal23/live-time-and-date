@@ -49,6 +49,12 @@ main {
   width: 100%;
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .title {
   display: flex;
   margin: 5rem auto;
@@ -113,6 +119,8 @@ main {
 }
 
 .flip-card {
+  border: 1px solid rgba(255, 255, 255, 0.449);
+  width: 105px;
   position: relative;
   font-size: 4rem;
   display: inline-flex;
