@@ -9,6 +9,7 @@ This repository contains the code for a launch countdown timer app, developed as
 - Displays live date and time.
 - Shows the time in days, hours, minutes, and seconds.
 - Updates the countdown in real-time.
+  -Flips the cards in real-time using css which looks easy on the eyes yet a tricky animation to implement.
 - Responsive design, suitable for various screen sizes.
 
 ## Technologies Used
